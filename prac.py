@@ -1,13 +1,27 @@
 import numpy as np
 
 
-d= {
-    'name': ["Anny", "Bunny", "Danny", "Enav"],
-    'age': [25, 36, 22, 12],
-    'income': [90, 75, 80, 93]
-}
+file_name = "data.txt"
 
-print(d['name'][len(d['name'])-1])
+with open(file_name,'w') as file:
+    file.write("Hello World")
+
+
+
+with open(file_name,'r') as file:
+    data = file.read()
+
+
+li = data.split(" ")
+print(li)
+
+out = "output.txt"
+with open(out,'w') as file:
+    file.write("Number of words : "+str(len(li)))
+
+
+
+
 
 
 

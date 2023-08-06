@@ -70,7 +70,28 @@ def factorial(n):
     for i in range(1,n+1):
         fac = fac*i
     return fac
-print(factorial(5))
+
+def fibonacci(n):
+    fib = []
+    a = 0
+    b = 1
+    fib.append(a)
+    fib.append(b)
+    for i in range(n-2):
+        c= a+b
+        a = b
+        b = c
+        fib.append(c)
+    return fib
+
+
+def square():
+    sq = []
+    for i in range(1,11):
+        sq.append(i**2)
+    return sq
+
+print(square())
 
 
 
