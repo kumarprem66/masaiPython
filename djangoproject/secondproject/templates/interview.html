@@ -1,0 +1,44 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interview</title>
+    <link rel="stylesheet" href="/static/interstyle.css">
+</head>
+
+
+ 
+<body>
+    
+   
+   <div class="container">
+    <div class="choose_course">
+       
+        <select name="Courses" id="courses">
+            <option value="">Select Your Course</option>
+            <option value="node">Node</option>
+            <option value="mern">Mern</option>
+            <option value="java">Java</option>
+        </select>
+        
+       
+    </div>
+
+    <div id="loading-animation">Loading...</div>
+
+    <div id="ques">
+        <h1 >Q1. </h1>
+        <textarea name="answer" id="answer" cols="100" rows="10"></textarea>
+    </div>
+    <div id="next" ><button>Next</button></div>
+   </div>
+</body>
+
+<script src="/static/interapp.js"></script>
+
+</html>

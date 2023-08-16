@@ -1,0 +1,54 @@
+{% extends 'dish/base.html' %}
+
+{% block content %}
+<!-- <h2>Update Order Status</h2>
+<button id="openPopup">Update Status</button> -->
+
+<div id="confirmationPopup" >
+  <div class="popup-content">
+    <h3>Update Order Status</h3>
+    <form method="post" id="statusForm">
+      {% csrf_token %}
+      <label for="new_status">New Status:</label>
+      <select id="new_status" name="new_status">
+        <!-- {% for choice in order.status_choices %}
+          <option value="{{ choice.0 }}">{{ choice.1 }}</option>
+        {% endfor %} -->
+
+        {% for choice in order.status_choices %}
+        <option value="{{ choice.0 }}" {% if choice.0 == order.status %}selected{% endif %}>
+          {{ choice.1 }}
+        </option>
+      {% endfor %}
+      </select>
+      
+      <button type="submit" id="submitBtn">Confirm</button>
+    </form>
+    <a href="{% url 'order_list' %}" id="cancelBtn">Cancel</a>
+  </div>
+</div>
+
+<!-- <script>
+document.addEventListener("DOMContentLoaded", function() {
+  const openPopupBtn = document.getElementById("openPopup");
+  const closePopupBtn = document.getElementById("closePopup");
+  const popup = document.getElementById("confirmationPopup");
+  const statusForm = document.getElementById("statusForm");
+
+  openPopupBtn.addEventListener("click", function() {
+    popup.style.display = "block";
+  });
+
+  closePopupBtn.addEventListener("click", function() {
+    popup.style.display = "none";
+  });
+
+  statusForm.addEventListener("submit", function(e) {
+    const confirmUpdate = confirm("Are you sure you want to update the status?");
+    if (!confirmUpdate) {
+      e.preventDefault();
+    }
+  });
+});
+</script> -->
+{% endblock %}

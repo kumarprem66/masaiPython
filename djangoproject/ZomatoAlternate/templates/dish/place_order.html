@@ -1,0 +1,17 @@
+{% extends 'dish/base.html' %}
+
+{% block content %}
+
+
+<div class="place_container">
+  <h2>Place an Order</h2>
+{% if error_message %}
+<p style="color: red;">{{ error_message }}</p>
+{% endif %}
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Place Order</button>
+</form>
+</div>
+{% endblock %}

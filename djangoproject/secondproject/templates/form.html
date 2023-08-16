@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .alert{
+        border: 1px solid red;
+    }
+</style>
+<body>
+    
+    <div class="container">
+        <!-- <form action="{% url 'submitform' %}" method="post"> -->
+            <form action="" method="post">
+
+              
+            {% csrf_token %} 
+        
+            {{form}}
+
+            {% if error %}
+            <div class="alert alert-danger" role="alert">
+                Please Enter the value
+            </div>
+            {% endif %}
+            <button type="submit">Save</button>
+           
+        </form>
+        <div> 
+            <label for="">output</label>
+            <input type="text" value="{{c}}">
+        </div>
+    </div>
+</body>
+</html>

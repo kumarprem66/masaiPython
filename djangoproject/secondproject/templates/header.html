@@ -1,0 +1,51 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>chatGPT</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+    <section class="side_bar">
+
+        <button class="new_button">New Chat</button>
+        <div class="history">
+
+        </div>
+        <nav>
+            <p>Made by Prem</p>
+        </nav>
+
+    </section>
+
+    <section class="main">
+
+    <div class="nav_bar">
+        <ul>
+        <li ><a class="{% if request.path == '/' %} active {% endif %}" href="#"><i class="fa fa-home"></i> Home</a>
+            
+        </li>
+        <li> <a href="#"><i class="fa fa-user"></i> Courses </a>
+            <div class="sub-menu-1">
+                <ul>
+                    <li><a href="#">Java</a></li>
+                    <li><a href="#">Node</a></li>
+                    <li><a href="#">Mern</a></li>
+
+                </ul>
+            </div>
+        </li> 
+        <li><a href="progress.html">Progress</a></li>
+
+        {% url 'interview' as url %}
+        <li><a class="{% if request.path == url %} active {% endif %}" href="{{url}}">Interview</a></li>
+        <li><a href="#" id="sign_in">SignIn</a></li>
+        <li><a href="" id="user_name"></a></li>
+        </ul>
+        
+    </div>

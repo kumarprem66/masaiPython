@@ -1,0 +1,17 @@
+{% extends 'dish/base.html' %}
+
+
+{% block content %}
+
+
+    <div class="delete_container">
+        <h2>Delete Dish</h2>
+        <p>Are you sure you want to delete '{{ dish.dish_name }}'?</p>
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn-delete">Confirm Delete</button>
+            <a href="{% url 'menu_page' %}" class="btn-cancel">Cancel</a>
+        </form>
+    </div>
+
+{% endblock %}

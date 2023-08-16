@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,600;1,400;1,600&display=swap');
+*{
+    box-sizing: border-box;
+}
+
+
+
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #343541;
+    font-family: 'Open Sans',sans-serif;
+    height: 100vh;
+    /* border: 1px solid red; */
+ 
+}
+
+h1{
+    color: white;
+}
+    .container{
+        margin: 10px 50px 0px 50px;
+        /* border: 1px solid red; */
+    }
+    .choose_course{
+        display: flex;
+        flex-direction: column;
+        margin-top: 10px;
+        
+        justify-content: center;
+        align-items: center;
+         
+    }
+
+    #courses{
+        width: 300px;
+        font-size: 20px;
+    }
+
+    #ques{
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #next{
+        display: flex;
+        flex-direction: row;
+        justify-content: end;
+        margin-right: 60px;
+        margin-top: 10px;
+    }
+    #next button{
+        width: 100px;
+        height: 50px;
+        font-size: 15px;
+        color: white;
+        font-weight: 600;
+        background: #202123;
+        border-radius: 15px;
+        cursor: pointer;
+    }
+
+    textarea{
+        
+        font-size: 20px;
+        padding: 20px;
+    }
+
+    #loading-animation {
+  /* CSS styles for the loading animation */
+  /* For example: */
+  font-size: 24px;
+  font-weight: bold;
+  animation: spin 1s infinite linear;
+  color: white;
+  justify-content: center;
+  display: none;
+  align-items: center;
+  /* border: 1px solid red; */
+}
+
+/* @keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+} */
+
+/* Additional styling as needed */

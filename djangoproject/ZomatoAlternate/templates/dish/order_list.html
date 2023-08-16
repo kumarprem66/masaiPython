@@ -1,0 +1,21 @@
+{% extends 'dish/base.html' %}
+
+{% block content %}
+
+<h2 class="order_header">Orders List</h2>
+<div class="btn_menu_div">
+    <a href="{% url 'menu_page' %}" class="menu_btn">Menu</a>
+    
+</div>
+<div class="order-container ">
+    {% for order in orders %}
+    <div class="order-card">
+        <h3>{{ order.customer_name }}</h3>
+        <p>{{ order.dish_items.all|join:", " }}</p>
+      
+        <a href="{% url 'update_order_status' order.id %}">{{ order.status }}</a>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

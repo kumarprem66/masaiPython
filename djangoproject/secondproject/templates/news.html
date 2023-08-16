@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    marquee{
+        border: 1px solid red;
+    }
+</style>
+<body>
+    <h1>WELCOME TO NEWS APP</h1>
+
+    <marquee behavior="" direction="left" onmouseout="start" onmouseover="stop">
+       {% for n in newsDetaAll %}
+       <a href="/newsDetail/{{n.id}}">{{n.news_title}}</a>
+       
+       
+       {% endfor %}
+    </marquee> 
+
+    <h2>{{newsDetaAll}}</h2>
+
+  
+  
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %} 
+
+{% block content%}
+
+
+<div class="container">
+    <h1>All Post</h1>
+
+    {% for post in postlist %}
+    <h3>{{post.caption}}</h3>
+    <p>{{post.username}}</p>
+
+    {% endfor %}
+    
+
+</div>
+{% endblock %}

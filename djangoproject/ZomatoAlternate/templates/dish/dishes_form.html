@@ -1,0 +1,12 @@
+{% extends 'dish/base.html' %}
+
+{% block content %}
+<div class="add_container">
+    <h2>Add New Dish</h2>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Dish</button>
+</form>
+</div>
+{% endblock %}

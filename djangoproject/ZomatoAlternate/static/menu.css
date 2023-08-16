@@ -1,0 +1,214 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.menu_header,.order_header{
+   
+    text-align: center;
+    margin-top: 20px;
+}
+
+.menu-container,.order-container{
+    margin: 50px;
+    
+    background-color: chocolate;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+
+}
+
+.dish-card,.order-card{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+    padding: 20px;
+    width: 220px;
+    background-color: azure;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.dish-card .buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px;
+
+}
+
+
+
+
+.delete_container,.update_container, .add_container,.place_container{
+    background-color: #aa9191;
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.close {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+.btn-confirm, .btn-cancel {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 15px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-cancel {
+    background-color: #ccc;
+    margin-left: 10px;
+}
+
+.btn-confirm:hover, .btn-cancel:hover {
+    background-color: #0056b3;
+}
+
+.btn-delete{
+    padding: 10px;
+    background-color: red;
+    text-decoration: none;
+    border-radius: 10px;
+    border: none ;
+    color: white;
+}
+.btn-edit{
+    padding: 10px;
+    text-decoration: none;
+    border-radius: 10px;
+    color: white;
+    background-color: #007bff;
+}
+.btn-cancel,#closePopup{
+    background-color: green;
+    padding: 10px;
+}
+
+#not_avail{
+    color: red;
+}
+
+#avail{
+    color: green;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+  }
+  
+.popup-content {
+    
+
+    border-radius: 8px;
+    width: 400px;
+    text-align: center;
+
+    background-color: #aa9191;
+    width: 300px;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#submitBtn{
+
+    padding: 10px;
+    background-color: #0056b3;
+    border: none ;
+    margin: 20px;
+    
+
+}
+
+#cancelBtn{
+    padding: 10px;
+    background-color: green;
+    border: none ;
+    margin: 10px;
+    
+}
+
+.btn_orders_div{
+    margin-right: 50px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.btn_orders_div .btn-orders{
+
+    padding: 10px;
+    background-color: gray;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    font-weight: 700;
+    /* background: #0056b3; */
+
+}
+
+.btn_orders_div .add-dishes,.btn_orders_div .menu_btn{
+    padding: 10px;
+    background-color: crimson;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    font-weight: 700;
+}
+.btn_menu_div{
+    margin-right: 50px;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+}
+.btn_menu_div .menu_btn{
+    padding: 10px;
+    background-color: crimson;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    font-weight: 700;
+}
+
+.dash_header{
+    text-align: center;
+    margin: 30px 0px 20px 0px;
+    color: darkorange;
+}

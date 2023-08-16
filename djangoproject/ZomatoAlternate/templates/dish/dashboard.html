@@ -1,0 +1,37 @@
+{% extends 'dish/base.html' %}
+
+{% block content %}
+<h1 class="dash_header">Welcome Zomato Chronicles</h1>
+<div class="btn_menu_div">
+    <a href="{% url 'menu_page' %}" class="menu_btn">Admin</a>
+    {% if user.is_authenticated %}
+    Welcome, {{ user.username }}!
+    <a href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a href="{% url 'login' %}">Login</a> | <a href="{% url 'register' %}">Register</a>
+    {% endif %}
+
+</div>
+<div class="menu-container">
+    {% for dish in dishes %}
+    <div class="dish-card">
+        <h3>{{ dish.dish_name }}</h3>
+        <p>Price: {{ dish.price }}</p>
+        {% if not dish.is_available %}
+            <span id="not_avail">Not Avail</span>
+        {% else %}
+        <span id="avail">Avail</span>
+        {% endif %}
+        <div class="buttons">
+            <a href="{% url 'place_order' %}" class="btn-edit">Place Order</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+{% endblock %}
