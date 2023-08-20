@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+
+    }
+    button{
+        padding: 10px 20px 10px 20px;
+        cursor: pointer;
+
+    }
+    .container{
+        background-image: url(https://img.freepik.com/free-photo/abstract-digital-grid-black-background_53876-97647.jpg?size=626&ext=jpg&ga=GA1.2.925361270.1692352616&semt=ais);
+        height: 100vh;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: right;
+        width: 100vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    #webcam_container{
+        border: 1px solid red;
+    }
+
+    .progress-bar-container {
+        width: 200px;
+        height: 20px;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-top: 10px;
+    
+    }
+
+    .progress-bar {
+        height: 100%;
+        width: 0;
+        background-color: #4caf50;
+        transition: width 0.3s ease;
+    }
+
+    /* .hidden{
+        display: none;
+    } */
+    #label-container{
+        font-size: 20px;
+        color: white;
+    }
+</style>
+<body>
+   
+
+<div class="container">
+
+    <div id="webcam-container"></div>
+    <div id="label-container"></div>
+    <button type="button" onclick="init()">Login</button>
+
+    <div class="progress-bar-container hidden">
+        <div class="progress-bar"></div>
+    </div>
+    
+
+    
+</div>
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest/dist/teachablemachine-image.min.js"></script>
+<script type="text/javascript">
+    // More API functions here:
+    // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+
+    // the link to your model provided by Teachable Machine export panel
+    const URL = "https://teachablemachine.withgoogle.com/models/kOb8-pRm2/";
+
+    let model, webcam, labelContainer, maxPredictions, progressBar
+
+    // let timeOutId
+    // let progressBar =  document.querySelector('.container .progress-bar-container .progress-bar');
+
+    // Load the image model and setup the webcam
+    async function init() {
+       
+
+        // progressBar.classList.remove('hidden');
+
+        // timeOutId = setTimeout(registerpage,60000)
+
+        const modelURL = URL + "model.json";
+        const metadataURL = URL + "metadata.json";
+
+        // load the model and metadata
+        // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+        // or files from your local hard drive
+        // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+        model = await tmImage.load(modelURL, metadataURL);
+        maxPredictions = model.getTotalClasses();
+
+        // Convenience function to setup a webcam
+        const flip = true; // whether to flip the webcam
+        webcam = new tmImage.Webcam(400, 400, flip); // width, height, flip
+        await webcam.setup(); // request access to the webcam
+        await webcam.play();
+        window.requestAnimationFrame(loop);
+
+        // append elements to the DOM
+        document.getElementById("webcam-container").appendChild(webcam.canvas);
+        labelContainer = document.getElementById("label-container");
+   
+        
+      
+
+        for (let i = 0; i < maxPredictions; i++) { // and class labels
+            labelContainer.appendChild(document.createElement("div"));
+            
+        }
+    }
+
+    async function loop() {
+        webcam.update(); // update the webcam frame
+        await predict();
+        window.requestAnimationFrame(loop);
+    }
+
+    // run the webcam image through the image model
+    let conditionMet = false
+    async function predict() {
+        // predict can take in an image, video or canvas html element
+        const prediction = await model.predict(webcam.canvas);
+        for (let i = 0; i < maxPredictions; i++) {
+            const classPrediction =
+                prediction[i].className + ": " + prediction[i].probability.toFixed(2);
+
+            // labelContainer.childNodes[i].innerHTML = classPrediction;
+            // labelContainer.childNodes[i].innerHTML = "Checking............"+classPrediction; 
+
+    
+
+           if((prediction[i].className == 'prem' && prediction[i].probability > 0.90)
+           || (prediction[i].className == 'book' && prediction[i].probability > 0.90) ){  
+               conditionMet = true
+           }
+
+
+            progressBar =  document.querySelector('.container .progress-bar-container .progress-bar');
+            progressBar.style.width = (prediction[i].probability * 100) + '%';
+        }
+
+        if(conditionMet){
+            // clearTimeout(timeOutId);
+            window.location.href = 'index.html';
+            return;
+        }
+        window.requestAnimationFrame(loop);
+    }
+
+
+    function registerpage() {
+       window.location.href = "register.html";
+}
+
+
+</script>
+
+</body>
+</html>
