@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo App</title>
+    <link rel="stylesheet" href="./dist/output.css">
+</head>
+<!-- <style>
+    h1{
+        text-align: center;
+        margin: 20px;
+    }
+    .container,.add_todo{
+        margin: 40px;
+       
+    }
+    .content-table{
+        border-collapse: collapse;
+       
+        min-width: 500px;
+        font-size: 1.1rem;
+        width: 100%;
+        height: 100%;
+        border-radius: 5px 5px 0 0;
+        overflow: hidden;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+
+    }
+
+    .content-table thead tr{
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+        font-weight: bold;
+    }
+
+    .content-table th,
+    .content-table td {
+        padding: 12px 15px;
+    }
+
+    .content-table tbody tr{
+        border-bottom: 1px solid #dddddd;
+    }
+    .content-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+    }
+
+    .content-table tbody tr:last-of-type {
+        border-bottom:  2px solid #009879;
+    }
+    .content-table tbody tr.active-row{
+        font-weight: bold;
+        color: #009879;
+    }
+</style> -->
+<body>
+    <h1 class="text-center text-lg font-semibold">TODO App</h1>
+   
+    
+    <div class="container m-10">
+        <input type="text" id="title" placeholder="Add a Title" class="border p-1">
+        <input type="text" id="descrip" placeholder="Add  Description" class="border p-1">
+        <select name="priority" id="priority" class="bg-zinc-900 text-white p-2">
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+            <option value="High">High</option>
+        </select>
+        <input type="submit" id="save_btn" class="bg-slate-600 text-white p-2">
+    </div>
+    <div class="w-full rounded-lg shadow-md m-10">
+        <table class="content-table border-collapse min-w-min text-lg w-full p-2">
+           
+            <thead class="text-left bg-cyan-200 p-2">
+               <tr class="text-left p-2"></tr>
+                <th class="p-2">Sno.</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Priority</th>
+                <th>IsCompleted</th>
+               </tr>
+            </thead>
+            <tbody>
+                <tr class="text-left">
+                    <td class="p-2">1.</td>
+                    <td>dlgjdlsg</td>
+                    <td>ldsgjlsdg</td>
+                    <td>Medium</td>
+                    <td><input type="checkbox"></td>
+                </tr>
+            
+            </tbody>
+           
+            
+        </table>
+    </div>
+</body>
+
+<script type="module" src="./app.js"></script>
+
+
+
+</html>
