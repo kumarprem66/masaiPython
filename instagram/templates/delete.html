@@ -1,0 +1,28 @@
+{% extends 'base.html' %} 
+
+{% block content%}
+
+
+<div class="container">
+    <h1>All Post</h1>
+
+ 
+
+    <div class="dropdown">
+        <button class="btn btn-primary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Dropdown button
+        </button>
+        <ul class="dropdown-menu dropdown-menu-dark">
+
+            {% for p in post %}
+          <li><a class="dropdown-item" href="/remove_post/{{p.id}}">{{p.id}} {{emp.username}}</a></li>
+            {% endfor %}
+
+        </ul>
+      </div>
+
+    
+    
+
+</div>
+{% endblock %}
